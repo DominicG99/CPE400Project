@@ -61,6 +61,7 @@ while True: # This will keep the program running until the user decides to quit.
         srcAdd = input() # User will enter source router address from example network
         print("Enter a destination address: ")
         dstAdd = input() # User will enter destination router address from example network
+        print(nx.dijkstra_path(HNetwork, srcAdd, dstAdd))
         break
     elif cmd == '2':
         print("Enter a router address: ") # User will enter a router address from example network
