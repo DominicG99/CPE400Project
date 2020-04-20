@@ -1,13 +1,57 @@
 # Authors: Dominic Ginter, <Insert Name 2>, <Insert Name 3>
 # CPE 400 Project
 # Hierarchial Routing Simulation
-import matplotlib as plt
+import matplotlib.pyplot as plt
 import math
 import networkx as nx # This is for creating graphs
-network = nx.MultiGraph()
-network.add_nodes_from([0,36])
-network.add_edges_from([(0,1),(0,3),(1,2),(2,3)], weight = 1.0) #Cluster 1 Region 1 Connections
-network.add_edges_from([(4,5),(4,7), (5,6), (6,7)], weight = 1.0) #Cluster 1 Region 2 Connections
+C1R1 = nx.MultiGraph() #Cluster 1 Region 1 Nodes
+C1R2 = nx.MultiGraph() #Cluster 1 Region 2 Nodes
+C1R3 = nx.MultiGraph() #Cluster 1 Region 3 Nodes
+C2R1 = nx.MultiGraph() #Cluster 2 Region 2 Nodes
+C2R2 = nx.MultiGraph() #Cluster 2 Region 2 Nodes
+C2R3 = nx.MultiGraph() #Cluster 2 Region 3 Nodes
+C2R4 = nx.MultiGraph() #Cluster 2 Region 4 Nodes
+C3R1 = nx.MultiGraph()
+C3R2 = nx.MultiGraph()
+C1R1.add_nodes_from([1,4]) #Creating Nodes
+C1R2.add_nodes_from([1,4])
+C1R3.add_nodes_from([1,4])
+C2R1.add_nodes_from([1,5])
+C2R2.add_nodes_from([1,4])
+C2R3.add_nodes_from([1,4])
+C2R4.add_nodes_from([1,4])
+C1R1.add_edges_from([(1,2),(1,4),(2,3),(3,4)], weight = 1.0) #Adding Edges
+C1R2.add_edges_from([(1,2),(1,4),(2,3),(3,4)], weight = 1.0) #Adding Edges
+C1R3.add_edges_from([(1,2),(1,3),(2,3)], weight = 2.0) #Adding Edges
+C1R3.add_edge(2,4, weight = 3.0)
+C2R1.add_edges_from([(2,3), (2,5), (3,4), (4,5)], weight = 1.0)
+C2R1.add_edge(1,2, weight = 2.0)
+C2R2.add_edges_from([(1,2),(1,4),(2,3),(3,4)], weight = 1.0)
+C2R3.add_edges_from([(1,2),(1,4),(2,3),(3,4)], weight = 1.0)
+C2R4.add_edges_from([(1,2),(1,4),(2,3),(3,4)], weight = 1.0)
+C3R1.add_edges_from([(1,2),(1,4),(2,3),(3,4)], weight = 1.0)
+C3R2.add_edges_from([(1,2),(1,4),(2,3),(3,4)], weight = 1.0)
+Cluster1 = nx.union(C1R1,C1R2, rename=('1.1.', '1.2.'))
+Cluster1 = nx.union(Cluster1, C1R3, rename=('','1.3.'))
+Cluster2 = nx.union(C2R1, C2R2, rename=('2.1.', '2.2.'))
+Cluster2 = nx.union(Cluster2, C2R3, rename=('', '2.3.'))
+Cluster2 = nx.union(Cluster2, C2R4, rename=('', '2.4.'))
+Cluster3 = nx.union(C3R1, C3R2, rename=('3.1.', '3.2.'))
+Cluster1 = nx.union(Cluster1, Cluster2)
+Cluster1.add_edge('1.1.3', '1.2.4', weight = 4.0)
+Cluster1.add_edge('1.1.3', '1.3.2', weight = 9.0)
+Cluster1.add_edge('1.2.4', '1.3.2', weight = 8.0)
+Cluster1.add_edge('1.3.4', '2.1.1', weight = 14.0)
+Cluster1.add_edge('2.1.3', '2.2.1', weight = 6.0)
+Cluster1.add_edge('2.1.5', '2.4.1', weight = 4.0)
+Cluster1.add_edge('2.4.3', '2.3.4', weight = 7.0)
+HNetwork = nx.union(Cluster1, Cluster3)
+HNetwork.add_edge('3.1.3', '3.2.4', weight = 3.0)
+HNetwork.add_edge('3.2.1', '2.4.4', weight = 14.0)
+HNetwork.add_edge('3.1.1', '1.3.4', weight = 12.0)
+nx.draw_networkx(HNetwork,with_labels=True,node_size=50)
+plt.show()
+print(nx.dijkstra_path(HNetwork,'1.1.1','2.3.2'))
 print("This program simulates Multilevel hierarchial routing with an example network.\nThis example network can be found inside the project folder.\n") #Brief Description
 while True: # This will keep the program running until the user decides to quit.
     print("Please select an option.\n1.Route Packets in Network\n2.Display Routing Table\n3.List Border Gateway Routers\n4.Exit Program") #Menu print

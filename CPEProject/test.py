@@ -6,13 +6,14 @@ except:
 import networkx as nx
 
 G=nx.Graph()
-
 G = nx.MultiGraph()
 G.add_nodes_from([0,36])
 G.add_edges_from([(0,1),(0,3),(1,2),(2,3)], weight = 1.0)
 G.add_edges_from([(4,5),(4,7), (5,6), (6,7)], weight = 1.0)
-
-
+G.add_edges_from([(8,9),(8,10),(9,10)], weight = 2.0) #Cluster 1 Region 3 Connections
+G.add_edge(2,9, weight = 9.0)
+G.add_edge(2,7, weight = 8.0)
+print(nx.dijkstra_path(G,0,4))
 elarge=[(u,v) for (u,v,d) in G.edges(data=True) if d['weight'] >0.5]
 esmall=[(u,v) for (u,v,d) in G.edges(data=True) if d['weight'] <=0.5]
 
