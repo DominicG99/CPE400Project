@@ -7,7 +7,7 @@ import Graph
 import networkx as nx # This is for creating graphs
 from prettytable import PrettyTable #Will use this for creating tables in Option 2.
 nx.draw_networkx(Graph.HNetwork,with_labels=True,node_size=50) #This just makes an image of the graph we have with networkx.
-plt.show()
+plt.show()4
 print("This program simulates Multilevel hierarchial routing with an example network.\nThis example network can be found inside the project folder.\n") #Brief Description
 while True: # This will keep the program running until the user decides to quit.
     print("Please select an option.\n1.Route Packets in Network\n2.Display Routing Table\n3.List Border Gateway Routers\n4.Exit Program") #Menu print
