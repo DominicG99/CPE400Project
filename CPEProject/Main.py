@@ -1,4 +1,4 @@
-# Authors: Dominic Ginter, Cole Atkinson, <Insert Name 3>
+# Authors: Dominic Ginter, Cole Atkinson, Kelly Tay
 # CPE 400 Project
 # Hierarchial Routing Simulation
 import matplotlib.pyplot as plt
