@@ -11,7 +11,7 @@ from prettytable import PrettyTable #Will use this for creating tables in Option
 nx.draw_networkx(Graph.HNetwork,with_labels=True,node_size=80, font_size = 8, fontweight = 'bold', figsize = (60, 60)) #This just makes an image of the graph we have with networkx.
 print("This program simulates Multilevel hierarchial routing with an example network.\nThis example network can be found inside the project folder.\n") #Brief Description
 while True: # This will keep the program running until the user decides to quit.
-    print("Please select an option.\n1.Route Packets in Network\n2.Display Routing Table\n3.List Border Gateway Routers\n4.Display Mathematical Nodal map \n5.Display Realistic Nodal map \n6.Exit program \n") #Menu print
+    print("Please select an option.\n1.Route Packets in Network\n2.Display Routing Table\n3.Display Mathematical Nodal map \n4.Display Realistic Nodal map \n5.Exit program \n") #Menu print
     cmd = input() #collect user input
     if cmd == '1': #Option 1
         print("Enter a source address: ")
@@ -31,14 +31,12 @@ while True: # This will keep the program running until the user decides to quit.
         elif tableChoice == '2':
             print("In the works.")
             # Will print the hierarchial routing table here
-    elif cmd == '3': #Option 3
-        print("I'm thinking we make a function to list the level 1 and 2 BG routers")
-    elif cmd == '4': #Option 4
+    elif cmd == '3': #Option 4
         print("Displaying the mathematical nodal map...")
         plt.show() #Opens the Nodal Map
-    elif cmd == '5': #Option 5
+    elif cmd == '4': #Option 5
         print("Displaying the realistic nodal map")
         realisticImage = Image.open('Example network.jpg') #Opens the example network image
         realisticImage.show() #Displays the example network image
-    elif cmd == '6': #Exit
+    elif cmd == '5': #Exit
         break
