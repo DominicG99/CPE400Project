@@ -26,7 +26,7 @@ nx.set_node_attributes(C3R1, 'Region', 1)
 nx.set_node_attributes(C3R2, 'Region', 2)
 C1R1.add_edges_from([(1,2),(1,4),(2,3),(3,4)], weight = 1) #Adding Edges
 C1R2.add_edges_from([(1,2),(1,4),(2,3),(3,4)], weight = 1) #Adding Edges
-C1R3.add_edges_from([(1,2),(1,3),(2,3)], weight = 2.0) #Adding Edges
+C1R3.add_edges_from([(1,2),(1,3),(2,3)], weight = 2) #Adding Edges
 C1R3.add_edge(2,4, weight = 3)
 C2R1.add_edges_from([(2,3), (2,5), (3,4), (4,5)], weight = 1)
 C2R1.add_edge(1,2, weight = 2)
@@ -53,3 +53,4 @@ HNetwork = nx.union(Cluster1, Cluster3)
 HNetwork.add_edge('3.1.3', '3.2.4', weight = 3)
 HNetwork.add_edge('3.2.1', '2.4.4', weight = 14)
 HNetwork.add_edge('3.1.1', '1.3.4', weight = 12)
+

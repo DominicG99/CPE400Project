@@ -15,7 +15,7 @@ for y in range(len(allAdd)) :
     weight = nx.dijkstra_path_length(Graph.HNetwork, rtrAdd, allAdd[i]) # weight is the amount of hops it takes to get from the inputted address to the next address in the array of addresses
     line = nx.dijkstra_path(Graph.HNetwork, rtrAdd, allAdd[i]) # line represents the next hop to take after the inputted address
     try:
-        x.add_row([allAdd[i], line[1], weight])
+        x.add_row([allAdd[i], line[1], weight]) #adding row
     except IndexError:
         pass
-    i = i + 1
+    i = i + 1 #updating index
