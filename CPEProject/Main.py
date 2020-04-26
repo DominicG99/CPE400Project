@@ -5,9 +5,13 @@
 import matplotlib.pyplot as plt
 import math
 import Graph
+import imp
 from PIL import Image
 import networkx as nx # This is for creating graphs
 from prettytable import PrettyTable #Will use this for creating tables in Option 2.
+
+impTableCount = 0
+impHighTableCount = 0
 
 #This just makes an image of the graph we have with networkx.
 nx.draw_networkx(Graph.HNetwork,with_labels=True,node_size=80, font_size = 8, fontweight = 'bold', figsize = (60, 60))
@@ -40,12 +44,20 @@ while True: # This will keep the program running until the user decides to quit.
                 2.Hierarchial Table\n")
         print(list(Graph.HNetwork.neighbors(rtrAdd)))
         tableChoice = input() # Get input
+        print(tableChoice)
         if tableChoice == '1':
             import Table
+            impTableCount = impTableCount + 1
+            if impTableCount >= 1:
+                imp.reload(Table)
+            print(Table.x)
             # Will print the full routing table here
         elif tableChoice == '2':
             import HighTable
-            print("In the works.")
+            impHighTableCount = impHighTableCount + 1
+            if impHighTableCount >= 1:
+                imp.reload(HighTable)
+            print(HighTable.x)
             # Will print the hierarchial routing table here
     elif cmd == '3': #Option 4
         print("Displaying the mathematical nodal map...")
