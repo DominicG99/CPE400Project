@@ -4,13 +4,9 @@
 import matplotlib.pyplot as plt
 import math
 import Graph
-import imp
 from PIL import Image
 import networkx as nx # This is for creating graphs
 from prettytable import PrettyTable #Will use this for creating tables in Option 2.
-impTableCount = 0
-impHighTableCount = 0
-
 nx.draw_networkx(Graph.HNetwork,with_labels=True,node_size=80, font_size = 8, fontweight = 'bold', figsize = (60, 60)) #This just makes an image of the graph we have with networkx.
 print("This program simulates Multilevel hierarchial routing with an example network.\nThis example network can be found inside the project folder.\n") #Brief Description
 while True: # This will keep the program running until the user decides to quit.
@@ -27,21 +23,14 @@ while True: # This will keep the program running until the user decides to quit.
         print("Enter a router address: ") # User will enter a router address from example network
         rtrAdd = input()
         print("Would you like to see the full table or hierarchial table? (Please type 1 for full table or 2 for hierarchial table.") #This will show the difference between full table and hierarchial table
-        tableChoice = input()
-        print(tableChoice)
+        print(list(Graph.HNetwork.neighbors(rtrAdd)))
+        tableChoice = input() # Get input
         if tableChoice == '1':
             import Table
-            impTableCount = impTableCount + 1
-            if impTableCount >= 1:
-                imp.reload(Table)
-            print(Table.x)
             # Will print the full routing table here
         elif tableChoice == '2':
             import HighTable
-            impHighTableCount = impHighTableCount + 1
-            if impHighTableCount >= 1:
-                imp.reload(HighTable)
-            print(HighTable.x)
+            print("In the works.")
             # Will print the hierarchial routing table here
     elif cmd == '3': #Option 4
         print("Displaying the mathematical nodal map...")
@@ -52,3 +41,4 @@ while True: # This will keep the program running until the user decides to quit.
         realisticImage.show() #Displays the example network image
     elif cmd == '5': #Exit
         break
+    
