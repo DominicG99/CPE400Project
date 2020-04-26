@@ -41,8 +41,7 @@ while True: # This will keep the program running until the user decides to quit.
         #This will show the difference between full table and hierarchial table
         print("Please select a routing table display option.\n \
                 1.Full Table\n \
-                2.Hierarchial Table\n")
-        print(list(Graph.HNetwork.neighbors(rtrAdd)))
+                2.Hierarchial Table")
         tableChoice = input() # Get input
         print(tableChoice)
         if tableChoice == '1':
@@ -59,13 +58,13 @@ while True: # This will keep the program running until the user decides to quit.
                 imp.reload(HighTable)
             print(HighTable.x)
             # Will print the hierarchial routing table here
-    elif cmd == '3': #Option 4
+    elif cmd == '3': # Option 4
         print("Displaying the mathematical nodal map...")
-        plt.show() #Opens the Nodal Map
-    elif cmd == '4': #Option 5
+        plt.show() # Opens the Nodal Map
+    elif cmd == '4': # Option 5
         print("Displaying the realistic nodal map")
         realisticImage = Image.open('Example network.jpg') #Opens the example network image
-        realisticImage.show() #Displays the example network image
-    elif cmd == '5': #Exit
+        realisticImage.show() # Displays the example network image
+    elif cmd == '5': # Exit
         break
     

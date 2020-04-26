@@ -9,7 +9,9 @@ x = PrettyTable()
 i = 0
 j = 0
 allAdd = list(Graph.HNetwork) #allAdd represents all addresses; it contains every node address in the graph
+allAdd.sort()
 x.field_names = ["Destination", "Line", "Weight"]
+x.add_row([rtrAdd, '---', '---'])
 for y in range(len(allAdd)) :
     j = 0
     weight = nx.dijkstra_path_length(Graph.HNetwork, rtrAdd, allAdd[i]) # weight is the amount of hops it takes to get from the inputted address to the next address in the array of addresses

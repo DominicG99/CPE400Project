@@ -5,7 +5,6 @@ import math
 import Graph
 import networkx as nx 
 from prettytable import PrettyTable
-
 x = PrettyTable()
 i = 0
 nextAdd = list(Graph.HNetwork.neighbors(rtrAdd)) # nextAdd represents the next address, or the next hop of the inputted address
