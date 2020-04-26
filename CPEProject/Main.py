@@ -1,17 +1,29 @@
 # Authors: Dominic Ginter, Cole Atkinson, Kelly Tay
 # CPE 400 Project
 # Hierarchial Routing Simulation
+
 import matplotlib.pyplot as plt
 import math
 import Graph
 from PIL import Image
 import networkx as nx # This is for creating graphs
 from prettytable import PrettyTable #Will use this for creating tables in Option 2.
-nx.draw_networkx(Graph.HNetwork,with_labels=True,node_size=80, font_size = 8, fontweight = 'bold', figsize = (60, 60)) #This just makes an image of the graph we have with networkx.
-print("This program simulates Multilevel hierarchial routing with an example network.\nThis example network can be found inside the project folder.\n") #Brief Description
+
+#This just makes an image of the graph we have with networkx.
+nx.draw_networkx(Graph.HNetwork,with_labels=True,node_size=80, font_size = 8, fontweight = 'bold', figsize = (60, 60))
+print("This program simulates Multilevel hierarchial routing with an example network.\n \
+        This example network can be found inside the project folder.\n") #Brief Description
+
 while True: # This will keep the program running until the user decides to quit.
-    print("Please select an option.\n1.Route Packets in Network\n2.Display Routing Table\n3.Display Mathematical Nodal map \n4.Display Realistic Nodal map \n5.Exit program \n") #Menu print
+    #Menu print
+    print("Please select an option.\n \
+            1.Route Packets in Network\n \
+            2.Display Routing Table\n \
+            3.Display Mathematical Nodal map\n \
+            4.Display Realistic Nodal map \n \
+            5.Exit program \n")
     cmd = input() #collect user input
+    
     if cmd == '1': #Option 1
         print("Enter a source address: ")
         srcAdd = input() # User will enter source router address from example network
@@ -22,7 +34,10 @@ while True: # This will keep the program running until the user decides to quit.
     elif cmd == '2': #Option 2
         print("Enter a router address: ") # User will enter a router address from example network
         rtrAdd = input()
-        print("Would you like to see the full table or hierarchial table? (Please type 1 for full table or 2 for hierarchial table.") #This will show the difference between full table and hierarchial table
+        #This will show the difference between full table and hierarchial table
+        print("Please select a routing table display option.\n \
+                1.Full Table\n \
+                2.Hierarchial Table\n")
         print(list(Graph.HNetwork.neighbors(rtrAdd)))
         tableChoice = input() # Get input
         if tableChoice == '1':
