@@ -9,11 +9,9 @@ from PIL import Image
 import networkx as nx # This is for creating graphs
 from prettytable import PrettyTable #Will use this for creating tables in Option 2.
 
-#This just makes an image of the graph we have with networkx.
-nx.draw_networkx(Graph.HNetwork,
-    with_labels=True,node_size=80, font_size = 8, fontweight = 'bold', figsize = (60, 60))
+
 print("This program simulates Multilevel hierarchial routing with an example network.\n \
-        This example network can be found inside the project folder.\n") #Brief Description
+        This example network can be found by selecting option 4.\n") #Brief Description
 
 while True: # This will keep the program running until the user decides to quit.
     #Menu print
@@ -32,7 +30,7 @@ while True: # This will keep the program running until the user decides to quit.
         dstAdd = input() # User will enter destination router address from example network
         print(nx.dijkstra_path(Graph.HNetwork, srcAdd, dstAdd))
         print ("This path takes a total of ",
-            nx.shortest_path_length(Graph.HNetwork, srcAdd, dstAdd, weight= 'weight'), " hop(s).")
+            nx.shortest_path_length(Graph.HNetwork, srcAdd, dstAdd, weight= 'weight'), "hop(s).")
     elif cmd == '2': #Option 2
         print("Enter a router address: ") # User will enter a router address from example network
         rtrAdd = input()
@@ -50,10 +48,13 @@ while True: # This will keep the program running until the user decides to quit.
             print(HighTable.x, "\nThis table has", 37 - HighTable.count, "less entries than the full table.")
             print("Memory Efficieny:", 100 - (HighTable.count / 37) * 100, "%")
             # Will print the hierarchial routing table here
-    elif cmd == '3': # Option 4
+    elif cmd == '3': # Option 3
+        #This just makes an image of the graph we have with networkx.
+        nx.draw_networkx(Graph.HNetwork,
+        with_labels=True,node_size=80, font_size = 8, fontweight = 'bold', figsize = (60, 60))
         print("Displaying the mathematical nodal map...")
         plt.show() # Opens the Nodal Map
-    elif cmd == '4': # Option 5
+    elif cmd == '4': # Option 4
         print("Displaying the realistic nodal map")
         realisticImage = Image.open('Example network.jpg') #Opens the example network image
         realisticImage.show() # Displays the example network image
