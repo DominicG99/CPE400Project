@@ -26,7 +26,7 @@ while True: # This will keep the program running until the user decides to quit.
             2.Display Routing Table\n \
             3.Display Mathematical Nodal map\n \
             4.Display Realistic Nodal map \n \
-            5.Exit program \n")
+            5.Exit program")
     cmd = input() #collect user input
     
     if cmd == '1': #Option 1
@@ -57,7 +57,8 @@ while True: # This will keep the program running until the user decides to quit.
             impHighTableCount = impHighTableCount + 1
             if impHighTableCount >= 1:
                 imp.reload(HighTable)
-            print(HighTable.x)
+            print(HighTable.x, "\nThis table has", 37 - HighTable.count, "less entries than the full table.")
+            print("Memory Efficieny:", 100 - (HighTable.count / 37) * 100, "%")
             # Will print the hierarchial routing table here
     elif cmd == '3': # Option 4
         print("Displaying the mathematical nodal map...")
