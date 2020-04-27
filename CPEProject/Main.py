@@ -43,7 +43,6 @@ while True: # This will keep the program running until the user decides to quit.
                 1.Full Table\n \
                 2.Hierarchial Table")
         tableChoice = input() # Get input
-        print(tableChoice)
         if tableChoice == '1':
             import Table
             impTableCount = impTableCount + 1
