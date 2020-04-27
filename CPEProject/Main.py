@@ -45,8 +45,8 @@ while True: # This will keep the program running until the user decides to quit.
             # Will print the full routing table here
         elif tableChoice == '2':
             import HighTable
-            print(HighTable.x, "\nThis table has", 37 - HighTable.count, "less entries than the full table.")
-            print("Memory Efficieny:", 100 - (HighTable.count / 37) * 100, "%")
+            print(HighTable.x, "\nThis table has", len(HighTable.allAdd) - HighTable.count, "less entries than the full table.")
+            print("Memory Efficieny:", 100 - (HighTable.count / len(HighTable.allAdd)) * 100, "%")
             # Will print the hierarchial routing table here
     elif cmd == '3': # Option 3
         #This just makes an image of the graph we have with networkx.
