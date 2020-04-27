@@ -14,7 +14,8 @@ impTableCount = 0
 impHighTableCount = 0
 
 #This just makes an image of the graph we have with networkx.
-nx.draw_networkx(Graph.HNetwork,with_labels=True,node_size=80, font_size = 8, fontweight = 'bold', figsize = (60, 60))
+nx.draw_networkx(Graph.HNetwork,
+    with_labels=True,node_size=80, font_size = 8, fontweight = 'bold', figsize = (60, 60))
 print("This program simulates Multilevel hierarchial routing with an example network.\n \
         This example network can be found inside the project folder.\n") #Brief Description
 
@@ -34,7 +35,8 @@ while True: # This will keep the program running until the user decides to quit.
         print("Enter a destination address: ")
         dstAdd = input() # User will enter destination router address from example network
         print(nx.dijkstra_path(Graph.HNetwork, srcAdd, dstAdd))
-        print ("This path takes a total of ", nx.shortest_path_length(Graph.HNetwork, srcAdd, dstAdd, weight= 'weight'), " hop(s).")
+        print ("This path takes a total of ",
+            nx.shortest_path_length(Graph.HNetwork, srcAdd, dstAdd, weight= 'weight'), " hop(s).")
     elif cmd == '2': #Option 2
         print("Enter a router address: ") # User will enter a router address from example network
         rtrAdd = input()
