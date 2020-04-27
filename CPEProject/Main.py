@@ -5,13 +5,9 @@
 import matplotlib.pyplot as plt
 import math
 import Graph
-import imp
 from PIL import Image
 import networkx as nx # This is for creating graphs
 from prettytable import PrettyTable #Will use this for creating tables in Option 2.
-
-impTableCount = 0
-impHighTableCount = 0
 
 #This just makes an image of the graph we have with networkx.
 nx.draw_networkx(Graph.HNetwork,
@@ -47,16 +43,10 @@ while True: # This will keep the program running until the user decides to quit.
         tableChoice = input() # Get input
         if tableChoice == '1':
             import Table
-            impTableCount = impTableCount + 1
-            if impTableCount >= 1:
-                imp.reload(Table)
             print(Table.x)
             # Will print the full routing table here
         elif tableChoice == '2':
             import HighTable
-            impHighTableCount = impHighTableCount + 1
-            if impHighTableCount >= 1:
-                imp.reload(HighTable)
             print(HighTable.x, "\nThis table has", 37 - HighTable.count, "less entries than the full table.")
             print("Memory Efficieny:", 100 - (HighTable.count / 37) * 100, "%")
             # Will print the hierarchial routing table here
