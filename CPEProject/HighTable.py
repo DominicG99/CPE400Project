@@ -4,6 +4,7 @@ import math
 import Graph
 import networkx as nx 
 from prettytable import PrettyTable
+
 x = PrettyTable()
 Dict = {} #Dict is used to get shortest path to region or cluster.
 count = 1 #using this to display how many entries are in the table.
@@ -14,6 +15,8 @@ allAdd.sort()
 x.field_names = ["Destination", "Line", "Weight"]
 #adding to initial row of the inputted router address.
 x.add_row([rtrAdd, '---', '---'])
+x.sortby = "Destination" #Sort the dictionary by alphabetial
+
 for i in range(len(allAdd)):
     #Check if in the same cluster
     if(Graph.nodeAttributes[rtrAdd]['Cluster'] == Graph.nodeAttributes[allAdd[i]]['Cluster']):
