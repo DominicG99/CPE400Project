@@ -61,5 +61,8 @@ for i in range(len(allAdd)):
             weight = nx.dijkstra_path_length(Graph.HNetwork, rtrAdd, allAdd[i])
 #Construct the table with Dictionary keys.
 for key, value in Dict.items():
-    x.add_row([key, line[1], value])
-    count += 1
+    try:
+        x.add_row([key, line[1], value]) #adding row
+        count += 1
+    except IndexError:
+        pass
