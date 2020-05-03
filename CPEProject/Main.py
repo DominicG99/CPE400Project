@@ -52,8 +52,8 @@ while True: # This will keep the program running until the user decides to quit.
             impHighTableCount = impHighTableCount + 1 #increment import variable
             if impHighTableCount >= 1: #File has already been imported
                 imp.reload(HighTable) #Reset Import
-            print(HighTable.x, "\nThis table has", 37 - HighTable.count, "less entries than the full table.")
-            print("Memory Efficieny:", 100 - (HighTable.count / 37) * 100, "%")
+            print(HighTable.x, "\nThis table has", len(HighTable.allAdd) - HighTable.count, "less entries than the full table.")
+            print("Memory Efficieny:", 100 - (HighTable.count / len(HighTable.allAdd)) * 100, "%")
             # Will print the hierarchial routing table here
     elif cmd == '3': # Option 3
         #This just makes an image of the graph we have with networkx.
