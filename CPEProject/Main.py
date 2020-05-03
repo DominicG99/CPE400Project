@@ -8,7 +8,7 @@ import Graph
 from PIL import Image
 import networkx as nx # This is for creating graphs
 from prettytable import PrettyTable #Will use this for creating tables in Option 2.
-import imp
+import importlib
 impTableCount = 0 #Helps reimport files
 impHighTableCount = 0 #Helps reimport files
 print("This program simulates Multilevel hierarchial routing with an example network.\n \
@@ -44,14 +44,14 @@ while True: # This will keep the program running until the user decides to quit.
             import Table
             impTableCount = impHighTableCount + 1 #increment import variable
             if impTableCount >= 1: #File has already been imported
-                imp.reload(Table) #Reset Import
+                importlib.reload(Table) #Reset Import
             print(Table.x)
             # Will print the full routing table here
         elif tableChoice == '2':
             import HighTable #Hierarchial table file
             impHighTableCount = impHighTableCount + 1 #increment import variable
             if impHighTableCount >= 1: #File has already been imported
-                imp.reload(HighTable) #Reset Import
+                importlib.reload(HighTable) #Reset Import
             print(HighTable.x, "\nThis table has", len(HighTable.allAdd) - HighTable.count, "less entries than the full table.")
             print("Memory Efficieny:", 100 - (HighTable.count / len(HighTable.allAdd)) * 100, "%")
             # Will print the hierarchial routing table here
